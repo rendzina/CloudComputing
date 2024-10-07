@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# MK:U Cloud Computing
+# Script to help automate installation of PHP and PHP drivers
+# for AzureSQL on MS Azure
+
+# Start by ensuring system is up to date
+echo "Updating / Upgrading system"
+sudo apt update
+#sudo apt upgrade # if upgrades are also required
+
 # Install the PHP pre-requisites:
 echo "Installing php-dev"
 apt install php-dev
