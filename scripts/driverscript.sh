@@ -4,6 +4,7 @@
 # Name         : installsql_php.sh
 # Description  : This script installs the Microsoft ODBC driver 18 from the bash shell for Ubuntu and was copied 
 #                directly from the Microsoft learn/SQL/SQL server web page
+# MK:U Cloud Computing
 #
 # Reference    : https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current
 # Requires     : PHP 8.3
@@ -29,8 +30,12 @@ curl https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /
 # Add repo to apt sources
 curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
 
-# Install the driver
+# Ensuring system is up to date
+echo "Updating / Upgrading system"
 sudo apt-get update
+#sudo apt-get upgrade # if upgrades are also required
+
+# Install the driver
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
 # optional: for bcp and sqlcmd
 sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18

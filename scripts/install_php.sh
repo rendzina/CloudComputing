@@ -3,6 +3,7 @@
 ################################################################################
 # Name         : installphp.sh
 # Description  : This script installs php and the php Apache2 package
+# MK:U Cloud Computing
 #
 # Reference    : https://documentation.ubuntu.com/server/how-to/web-services/install-php/
 # Requires     : Ubuntu 24.04, Apache2
@@ -20,6 +21,11 @@ then
 else
  echo "Ubuntu $(lsb_release -rs)"
 fi
+
+# Ensuring system is up to date
+echo "Updating / Upgrading system"
+sudo apt-get update
+#sudo apt-get upgrade # if upgrades are also required
 
 # check Apache is installed. This is required before we install php. exit if not
 if [[ -z $(apache2 -v 2>/dev/null) ]] && [[ -z $(httpd -v 2>/dev/null) ]]; 
