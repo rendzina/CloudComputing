@@ -14,7 +14,9 @@
 ################################################################################
 
 # check version of ubuntu - exit if not latest
-if ! [[ "24.04" == *"$(lsb_release -rs)"* ]];
+#if ! [[ "24.04" == *"$(lsb_release -rs)"* ]];
+# bug fix below - use sed/regex to remove other spurious text than the release code, e.g. 24.04
+if ! [[ "24.04" == *"$(lsb_release -r -s | sed 's/[^0-9.]//g')"* ]];
 then
   echo "Ubuntu $(lsb_release -rs) is not currently supported.";
   exit;
