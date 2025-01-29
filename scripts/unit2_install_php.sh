@@ -9,8 +9,8 @@
 # Requires     : Ubuntu 24.04, Apache2
 #
 # Course       : cloud computing MK5014/MK6014
-# Date         : 04/10/2024
-# Version      : 1.0
+# Date         : 29/Jan/2025
+# Version      : 1.1
 ################################################################################
 
 # check version of ubuntu - exit if not latest
