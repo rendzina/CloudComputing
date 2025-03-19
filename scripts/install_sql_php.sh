@@ -9,9 +9,9 @@
 # Reference    : https://learn.microsoft.com/en-us/sql/connect/php/installation-tutorial-linux-mac?view=azuresqldb-current
 # Requires     : PHP 8.3
 #
-# Course       : cloud computing MK5014/MK6014
-# Date         : 04/10/2024
-# Version      : 1.0
+# Course       : Cloud Computing MK5014/MK6014
+# Date         : 19/3/2025
+# Version      : 2
 ################################################################################
 
 # Ensuring system is up to date

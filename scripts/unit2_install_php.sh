@@ -8,9 +8,9 @@
 # Reference    : https://documentation.ubuntu.com/server/how-to/web-services/install-php/
 # Requires     : Ubuntu 24.04, Apache2
 #
-# Course       : cloud computing MK5014/MK6014
-# Date         : 29/Jan/2025
-# Version      : 1.1
+# Course       : Cloud Computing MK5014/MK6014
+# Date         : 19/3/2025
+# Version      : 2
 ################################################################################
 
 # check version of ubuntu - exit if not latest
