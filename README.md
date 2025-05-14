@@ -1,7 +1,7 @@
-# Microsoft ODBC Driver Installation Script
+# Example final web page and Microsoft ODBC Driver Installation Script
 
 ## Overview
-This script automates the installation of Microsoft ODBC Driver 18 for SQL Server on Ubuntu systems. It's designed to simplify the setup process for developers working with SQL Server on Ubuntu environments.
+This repository contains scripts for setting up and testing Microsoft SQL Server connectivity on Ubuntu systems. It includes an installation script for the ODBC driver and a PHP test page for verifying the connection.
 
 ## Features
 - Automatic installation of Microsoft ODBC Driver 18
@@ -11,23 +11,36 @@ This script automates the installation of Microsoft ODBC Driver 18 for SQL Serve
 - Internet connectivity verification
 - Ubuntu version compatibility check
 - Prevents duplicate installations
+- PHP test page for connection verification
 
 ## Prerequisites
 - Ubuntu 18.04 or later (18.04, 20.04, 22.04, 23.04, 24.04)
 - Root privileges (sudo access)
 - Internet connection
 - PHP 8.3 (as required by the project)
+- Web server (Apache/Nginx) for PHP test page
 
 ## Installation
-1. Clone this repository or download the script
-2. Make the script executable:
+1. Clone this repository or download the scripts
+2. Make the installation script executable:
    ```bash
    chmod +x scripts/driverscript.sh
    ```
-3. Run the script with sudo:
+3. Run the installation script with sudo:
    ```bash
    sudo ./scripts/driverscript.sh
    ```
+4. Configure the PHP test page:
+   - Navigate to `html/sqltest.php`
+   - Update the database configuration with your credentials:
+     ```php
+     $serverName = "tcp:<<DATABASE SERVER NAME>>.database.windows.net,1433";
+     $connectionInfo = [
+         "UID" => "<<DATABASE SERVER NAME>>",
+         "pwd" => "<<PASSWORD>>",
+         "Database" => "<<DATABASE NAME>>"
+     ];
+     ```
 
 ## What Gets Installed
 - Microsoft ODBC Driver 18 for SQL Server
@@ -35,18 +48,26 @@ This script automates the installation of Microsoft ODBC Driver 18 for SQL Serve
 - unixODBC development headers
 
 ## Script Details
-- **Location**: `scripts/driverscript.sh`
-- **Version**: 2
-- **Last Updated**: 19/3/25
-- **Reference**: [Microsoft Documentation](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current)
+- **ODBC Driver Installation**: `scripts/driverscript.sh`
+  - Version: 2
+  - Last Updated: 19/3/25
+  - Reference: [Microsoft Documentation](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=azuresqldb-current)
+
+- **SQL Test Page**: `html/sqltest.php`
+  - Bootstrap-styled interface
+  - Error handling and display
+  - Responsive table for data display
+  - Connection status feedback
 
 ## Error Handling
-The script includes comprehensive error handling for:
+The scripts include comprehensive error handling for:
 - Missing root privileges
 - No internet connection
 - Unsupported Ubuntu versions
 - Failed package installations
 - Repository configuration issues
+- Database connection failures
+- Query execution errors
 
 ## Environment Setup
 After installation, the script automatically:
@@ -68,6 +89,10 @@ To verify the installation was successful:
    ```bash
    echo $PATH | grep mssql-tools18
    ```
+4. Test database connection:
+   - Open `html/sqltest.php` in your web browser
+   - Verify successful connection and data display
+   - Check for any error messages
 
 ## Troubleshooting
 If you encounter issues:
@@ -95,6 +120,12 @@ If you encounter issues:
    - Check if PATH was updated: `echo $PATH`
    - Verify .bashrc was modified correctly
    - Try sourcing .bashrc manually: `source ~/.bashrc`
+
+6. **PHP Test Page Issues**
+   - Verify PHP installation: `php -v`
+   - Check web server configuration
+   - Verify database credentials
+   - Check PHP error logs
 
 ## Contributing
 Feel free to submit issues and enhancement requests.
